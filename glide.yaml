@@ -1,0 +1,11 @@
+package: github.com/moogar0880/ghlabeler
+import:
+- package: github.com/google/go-github
+  subpackages:
+  - github
+- package: golang.org/x/oauth2
+  subpackages:
+  - internal
+- package: golang.org/x/net
+  subpackages:
+  - context
