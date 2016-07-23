@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/moogar0880/gh-labeler"
+	"github.com/moogar0880/ghlabeler"
 )
 
 const (
