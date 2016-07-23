@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/moogar0880/ghlabeler"
+	"github.com/moogar0880/gh-labeler"
 )
 
 const (
 	// Version constant for printing the version information
-	Version = "0.0.0-alpha"
+	Version = "0.1.0"
 
 	// DefaultFile is the default file name to load label config data from
 	DefaultFile = "labels.json"
