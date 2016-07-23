@@ -9,8 +9,17 @@ Installing gh-labeler is as simple as running `go get` like so:
 $ go get github.com/moogar0880/gh-labeler/cmd/ghlabels
 ```
 
+## Docker Image
+You can also pull down and run the publicly available docker image:
+
+```bash
+$ docker run --rm moogar0880/ghlabeler -token ${MY_ACCESS_TOKEN}
+```
+
 ## Configuration
-Before you can start using this tool, you need a [personal Github Access Token](https://github.com/settings/tokens) with proper repository permissions.
+Before you can start using this tool, you need a
+[personal Github Access Token](https://github.com/settings/tokens) with proper
+repository permissions.
 
 ## Usage
 To run ghlabels once it's installed (assuming `${GOPATH}/bin` is on your `$PATH`)
