@@ -9,8 +9,13 @@ import (
 	"github.com/google/go-github/github"
 )
 
+const (
+	defaultHost = "https://api.github.com/"
+)
+
 // Config holds the labeler configuration
 type Config struct {
+	Host   string          `json:"host"`
 	Owner  string          `json:"owner"`
 	Repo   string          `json:"repo"`
 	Labels []*github.Label `json:"labels"`
@@ -28,6 +33,11 @@ func LoadConfig(fp string) *Config {
 	if err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)
+	}
+
+	// Set the default host if one was not provided
+	if config.Host == "" {
+		config.Host = defaultHost
 	}
 	return &config
 }

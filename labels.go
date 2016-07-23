@@ -1,7 +1,10 @@
 package ghlabels
 
 import (
+	"fmt"
 	"log"
+	"net/url"
+	"os"
 
 	"github.com/google/go-github/github"
 	"golang.org/x/oauth2"
@@ -23,8 +26,15 @@ func NewLabeler(token string, c *Config) *GHLabeler {
 		&oauth2.Token{AccessToken: token},
 	)
 	tc := oauth2.NewClient(oauth2.NoContext, ts)
-	return &GHLabeler{Client: github.NewClient(tc),
-		Config: c}
+
+	client := github.NewClient(tc)
+	hostURL, err := url.Parse(c.Host)
+	if err != nil {
+		fmt.Println(err.Error())
+		os.Exit(1)
+	}
+	client.BaseURL = hostURL
+	return &GHLabeler{Client: client, Config: c}
 }
 
 // GetLabels returns the list of existing labels from a specified gh repository
