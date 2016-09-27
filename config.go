@@ -18,6 +18,7 @@ type Config struct {
 	Host   string          `json:"host"`
 	Owner  string          `json:"owner"`
 	Repo   string          `json:"repo"`
+	Repos  []string        `json:"repos"`
 	Labels []*github.Label `json:"labels"`
 }
 
@@ -38,6 +39,10 @@ func LoadConfig(fp string) *Config {
 	// Set the default host if one was not provided
 	if config.Host == "" {
 		config.Host = defaultHost
+	}
+
+	if len(config.Repo) != 0 {
+		config.Repos = append(config.Repos, config.Repo)
 	}
 	return &config
 }
