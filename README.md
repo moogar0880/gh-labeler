@@ -27,17 +27,35 @@ you can run
 
 ```bash
 $ ghlabels -h
-Usage of ghlabels:
-  -file string
-    	Specify Config File to Load (default "labels.json")
-  -help
-    	Print usage
-  -remove
-    	Remove labels that are absent from the config file
-  -token string
-    	The Github Access Token to use (default "")
-  -version
-    	Print version information and quit
+Define more useful labels for your Github issues.
+
+Usage:
+  ghlabels [OPTIONS] COMMAND [arg...] [flags]
+
+Flags:
+  -f, --file string    Specify Config File to Load (default "labels.json")
+  -r, --remove         Remove labels that are not present in the config file
+  -t, --token string   The Github Access Token to use
+  -v, --version        Print version information and quit
+```
+
+## Extended Usage
+As of 0.2.0, you may now specify a list of repositories to apply the label
+configuration to. You may list out multiple repositories like so:
+```json
+{
+  "owner": "moogar0880",
+  "repos": [
+    "gh-labeler",
+    "PyTrakt"
+  ],
+  "labels": [
+    {
+      "name": "bug",
+      "color": "ee0701"
+    }
+  ]
+}
 ```
 
 ## Default Labels
